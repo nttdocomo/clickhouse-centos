@@ -5,11 +5,11 @@ RUN groupadd -r -g 11211 memcache && useradd -r -g memcache -u 11211 memcache
 
 ENV CLICKHOUSE_VERSION 20.12.8.5
 
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
-ARG ARCH=amd64
+ENV LANG=en_US.UTF-8 \
+    LANGUAGE=en_US:en \
+    LC_ALL=en_US.UTF-8 \
+    TZ=UTC \
+    CLICKHOUSE_CONFIG=/etc/clickhouse-server/config.xml
 
 RUN set -x \
 	# install build dependencies for openssl
