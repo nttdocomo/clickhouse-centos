@@ -8,6 +8,9 @@ ARG ARCH=amd64
 
 RUN set -x \
 	# install build dependencies for openssl
-	&& curl -o clickhouse-common-static.tar.gz "https://packages.clickhouse.com/tgz/stable/clickhouse-common-static-$CLICKHOUSE_VERSION-$ARCH.tgz"
+	&& curl -o clickhouse-common-static.tgz "https://packages.clickhouse.com/repo-archive/tgz/stable/clickhouse-common-static-$CLICKHOUSE_VERSION.tgz" \
+	&& mkdir -p /usr/src/clickhouse-common-static \
+	&& tar -xzf clickhouse-common-static.tgz -C /usr/src/clickhouse-common-static --strip-components=1 \
+	&& /usr/src/clickhouse-common-static/install/doinst.sh
 
 # CMD ["memcached"]
