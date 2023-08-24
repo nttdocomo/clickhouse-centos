@@ -27,6 +27,6 @@ RUN set -x \
 	&& mkdir -p /var/lib/clickhouse /etc/clickhouse-server/config.d /etc/clickhouse-server/users.d /etc/clickhouse-client /docker-entrypoint-initdb.d \
 	&& chown clickhouse:clickhouse /var/lib/clickhouse \
 	# && chown root:clickhouse /var/log/clickhouse-server \
-	&& chmod ugo+Xrw -R /var/lib/clickhouse /var/log/clickhouse-server /etc/clickhouse-server /etc/clickhouse-client
+	&& chmod ugo+Xrw -R /var/lib/clickhouse /etc/clickhouse-server /etc/clickhouse-client
 
 COPY docker_related_config.xml /etc/clickhouse-server/config.d/
