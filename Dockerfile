@@ -22,6 +22,8 @@ RUN set -x \
 	&& curl -o clickhouse-client.tgz "https://packages.clickhouse.com/repo-archive/tgz/stable/clickhouse-client-$CLICKHOUSE_VERSION.tgz" \
 	&& mkdir -p /usr/src/clickhouse-client \
 	&& tar -xvzf clickhouse-client.tgz -C / --strip-components=2 \
+	&& groupadd -r -g 101 clickhouse \
+	&& useradd -r -g clickhouse -u 101 clickhouse \
 	&& mkdir -p /var/lib/clickhouse /etc/clickhouse-server/config.d /etc/clickhouse-server/users.d /etc/clickhouse-client /docker-entrypoint-initdb.d \
 	&& chown clickhouse:clickhouse /var/lib/clickhouse \
 	&& chown root:clickhouse /var/log/clickhouse-server \
