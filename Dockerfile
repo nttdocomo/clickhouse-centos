@@ -9,7 +9,7 @@ ENV LANG=en_US.UTF-8 \
 # lts / testing / prestable / etc
 ARG REPO_CHANNEL="stable"
 ARG REPOSITORY="https://packages.clickhouse.com/repo-archive/tgz/${REPO_CHANNEL}"
-ARG VERSION="20.12.8.5"
+ARG VERSION="20.3.9.70"
 ARG PACKAGES="clickhouse-client clickhouse-server clickhouse-common-static"
 
 RUN set -x \
