@@ -16,7 +16,7 @@ RUN set -x \
     && for package in ${PACKAGES}; do \
         { \
             { echo "Get ${REPOSITORY}/${package}-${VERSION}.tgz" \
-                && curl -o "${REPOSITORY}/${package}-${VERSION}.tgz" -O "/tmp/${package}-${VERSION}.tgz" \
+                && curl -o "/tmp/${package}-${VERSION}.tgz" "${REPOSITORY}/${package}-${VERSION}.tgz" \
                 && tar xvzf "/tmp/${package}-${VERSION}.tgz" --strip-components=1 -C / ; \
             } \
         } || exit 1 \
