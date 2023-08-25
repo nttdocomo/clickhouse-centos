@@ -11,7 +11,7 @@ ARG REPO_CHANNEL="stable"
 ARG REPOSITORY="https://packages.clickhouse.com/repo-archive/tgz/${REPO_CHANNEL}"
 ARG VERSION="20.3.9.70"
 ARG PACKAGES="clickhouse-client clickhouse-server clickhouse-common-static"
-COPY entrypoint.sh /entrypoint.sh
+# COPY entrypoint.sh /entrypoint.sh
 
 RUN set -x \
     && for package in ${PACKAGES}; do \
@@ -31,9 +31,9 @@ RUN set -x \
 
 COPY docker_related_config.xml /etc/clickhouse-server/config.d/
 
-EXPOSE 9000 8123 9009
+# EXPOSE 9000 8123 9009
 
-VOLUME /var/lib/clickhouse \
-       /var/log/clickhouse-server
+# VOLUME /var/lib/clickhouse \
+#        /var/log/clickhouse-server
 
-ENTRYPOINT ["/entrypoint.sh"]
+# ENTRYPOINT ["/entrypoint.sh"]
