@@ -29,3 +29,10 @@ RUN set -x \
 	&& chmod ugo+Xrw -R /var/lib/clickhouse /etc/clickhouse-server /etc/clickhouse-client
 
 COPY docker_related_config.xml /etc/clickhouse-server/config.d/
+
+EXPOSE 9000 8123 9009
+
+VOLUME /var/lib/clickhouse \
+       /var/log/clickhouse-server
+
+ENTRYPOINT ["/entrypoint.sh"]
