@@ -11,6 +11,7 @@ ARG REPO_CHANNEL="stable"
 ARG REPOSITORY="https://packages.clickhouse.com/repo-archive/tgz/${REPO_CHANNEL}"
 ARG VERSION="20.3.9.70"
 ARG PACKAGES="clickhouse-client clickhouse-server clickhouse-common-static"
+COPY entrypoint.sh /entrypoint.sh
 
 RUN set -x \
     && for package in ${PACKAGES}; do \
